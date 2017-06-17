@@ -14,12 +14,12 @@ After running a `bundle install`, run the devise installation generator below to
 $ rails generate devise:install
 ```
 
-In order to get devise to work you have to add the following line into your `config/development.rb`:
+In order to get devise to work you have to add the following line into your `config/environments/development.rb`:
 ```ruby
 config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 ```
 
-Next, change the default Devise logout HTTP verb from `DELETE` to `GET`. Change `config.sign_out_via = :delete` to `config.sign_out_via = :get` in `config/initializers/devise.rb`.
+Next, change the default Devise logout HTTP verb from `DELETE` to `GET`. First go to `config/initializers/devise.rb`, then change `config.sign_out_via = :delete` to `config.sign_out_via = :get`.
 
 You also need to make sure that you have flash messages displaying since Devise uses them to indicate errors such as invalid email/password or login/logout messages. If you don't have something like this already, add this to your `application.html.erb`:
 
